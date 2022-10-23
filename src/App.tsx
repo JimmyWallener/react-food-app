@@ -1,25 +1,26 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, useState } from 'react';
+import Cart from './components/Cart/Cart';
+import Header from './components/Layout/Header';
+import Meals from './components/Meals/Meals';
+import CartProvider from './store/CartProvider';
 
-function App() {
+function App(): JSX.Element {
+  const [cartIsShown, setCartIsShown] = useState<boolean>(false);
+
+  const cartHandler: React.Dispatch<
+    React.SetStateAction<boolean>
+  > = (): void => {
+    setCartIsShown((curVal: boolean): boolean => !curVal);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <CartProvider>
+      <Fragment>{cartIsShown && <Cart onCloseCart={cartHandler} />}</Fragment>
+      <Header onOpenCart={cartHandler} />
+      <main>
+        <Meals />
+      </main>
+    </CartProvider>
   );
 }
 
