@@ -15,9 +15,14 @@ const Input = React.forwardRef(
     ref: ForwardedRef<HTMLInputElement>
   ): JSX.Element => {
     return (
-      <div>
+      <div className='flex items-center mr-5'>
         <label htmlFor={input.input.id}>{label}</label>
-        <input ref={ref} id={input.input.id} {...input} />
+        <input
+          className='text-center border ml-3 border-solid w-32'
+          ref={ref}
+          id={input.input.id}
+          {...input}
+        />
       </div>
     );
   }

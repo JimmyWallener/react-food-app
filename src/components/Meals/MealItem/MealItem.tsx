@@ -7,10 +7,10 @@ const MealItem = ({
   desc,
   price,
 }: {
-  id?: string;
-  name?: string;
-  desc?: string;
-  price?: number;
+  id: string | undefined;
+  name: string | undefined;
+  desc: string | undefined;
+  price: number | undefined;
 }): JSX.Element => {
   const ctx = useContext(CartContext);
 

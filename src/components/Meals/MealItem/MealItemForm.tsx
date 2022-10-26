@@ -21,21 +21,23 @@ const MealItemForm = ({ id, onAddToCart }: Props): JSX.Element => {
   };
   return (
     <form onSubmit={submitHandler}>
-      <Input
-        ref={amountRef}
-        label='Amount'
-        input={{
-          id: `amount_${id}`,
-          type: 'number',
-          min: '1',
-          max: '5',
-          step: '1',
-          defaultValue: '1',
-        }}
-      />
-      <button className='text-right cursor-pointer bg-[#8a2b06] text-white rounded-2xl font-bold border-solid border border-[#8a2b06] p-2'>
-        + Add
-      </button>
+      <div className='flex'>
+        <Input
+          ref={amountRef}
+          label='Amount'
+          input={{
+            id: `amount_${id}`,
+            type: 'number',
+            min: '1',
+            max: '5',
+            step: '1',
+            defaultValue: '1',
+          }}
+        />
+        <button className='text-right cursor-pointer bg-[#8a2b06] text-white rounded-2xl font-bold border-solid border border-[#8a2b06] p-2'>
+          + Add
+        </button>
+      </div>
       {!isAmountValid && <p>Please enter a valid amount (1-5.</p>}
     </form>
   );

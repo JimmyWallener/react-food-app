@@ -16,10 +16,10 @@ const CartContext = React.createContext<CartInterface>({
   items: [],
   totalAmount: 0,
   addItem: (item: {
-    id?: string;
-    name?: string;
-    amount?: number;
-    price?: number;
+    id: string;
+    name: string;
+    amount: number;
+    price: number;
   }): void => {},
   removeItem: (id: string): void => {},
 });
